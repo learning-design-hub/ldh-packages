@@ -25,7 +25,7 @@
     Write-Host "Extracting ..."
     # Extract straight into ./<id>, dropping the archive's top folder (keeps paths short).
     Add-Type -AssemblyName System.IO.Compression.FileSystem
-    $archive = [IO.Compression.ZipFile]::OpenRead($zip)
+    $archive = [IO.Compression.ZipFile]::Open($zip, 'Read', [Text.Encoding]::UTF8)
     try {
       foreach ($e in $archive.Entries) {
         $rel = $e.FullName -replace '^[^/]+/', ''
