@@ -1,0 +1,37 @@
+{
+  "name": "Learning Design Hub packages",
+  "repo": "learning-design-hub/ldh-packages",
+  "version": "v1.1.0",
+  "packages": [
+    {
+      "id": "simple-course",
+      "title": "حزمة معيار الدورة المتجانسة",
+      "asset": "simple-course.zip",
+      "sizeBytes": 35279104,
+      "files": 148,
+      "sha256": "843fb598804b0682bf975f4bf0538112f5d3fa7950458f81f446d548e532753b"
+    },
+    {
+      "id": "interactive-course",
+      "title": "حزمة معيار الدورة التفاعلية المتنوعة",
+      "asset": "interactive-course.zip",
+      "sizeBytes": 14683020,
+      "files": 75,
+      "sha256": "2333bfd7328e85e36fe2dd01e6821cd3078b96383df9dad3d3284329429c5de0"
+    },
+    {
+      "id": "video-production",
+      "title": "حزمة معيار إنتاج الفيديو التعليمي",
+      "asset": "video-production.zip",
+      "sizeBytes": 37273173,
+      "files": 99,
+      "sha256": "d57da2ff9c78ee100262a6247936bfdaa2314498b6776ba251146898f4651fdc"
+    }
+  ],
+  "urls": {
+    "latest": "https://github.com/learning-design-hub/ldh-packages/releases/latest/download/{id}.zip",
+    "pinned": "https://github.com/learning-design-hub/ldh-packages/releases/download/{version}/{id}.zip",
+    "windows": "irm https://raw.githubusercontent.com/learning-design-hub/ldh-packages/main/install/{id}.ps1 | iex",
+    "mac": "curl -fsSL https://raw.githubusercontent.com/learning-design-hub/ldh-packages/main/install/{id}.sh | sh"
+  }
+}
