@@ -25,8 +25,13 @@ echo "Extracting ..."
 mkdir -p "$TMP/x"
 if command -v ditto >/dev/null 2>&1; then
   ditto -x -k "$TMP/p.zip" "$TMP/x"
-else
+elif command -v unzip >/dev/null 2>&1; then
   unzip -q "$TMP/p.zip" -d "$TMP/x"
+elif command -v python3 >/dev/null 2>&1; then
+  python3 -c 'import sys, zipfile; zipfile.ZipFile(sys.argv[1], metadata_encoding="utf-8").extractall(sys.argv[2])' "$TMP/p.zip" "$TMP/x" || { echo "Extract failed. Install unzip (for example: sudo apt install unzip) and run the command again."; exit 1; }
+else
+  echo "unzip is required. Install it (for example: sudo apt install unzip) and run the command again."
+  exit 1
 fi
 INNER="$(find "$TMP/x" -mindepth 1 -maxdepth 1 -type d ! -name '__MACOSX' | head -n 1)"
 mv "$INNER" "$DEST"
